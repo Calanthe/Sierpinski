@@ -9,16 +9,10 @@ var Sierpinski = {
 	c : 241,
 	v : 241,
 	
-	Pixel : {
-		x : -1,
-		y : -1,
-		init : function (x,y){
-			return{
-			x : x,
-			y : y
-		    };
-		}
-	},
+	Pixel : function Pixel (x,y) {
+        this.x = x;
+        this.y = y;
+    },
 	
 	initSierpinski : function(canvasElement){
 
@@ -30,9 +24,9 @@ var Sierpinski = {
 			Sierpinski gasket http://en.wikipedia.org/wiki/Sierpinski_triangle
 			http://pl.php.net/manual/en/function.imagesetpixel.php
 		*/
-		this.gasketArray[0] = this.Pixel.init(200,20);
-		this.gasketArray[1] = this.Pixel.init(0,380);
-		this.gasketArray[2] = this.Pixel.init(400,380);
+		this.gasketArray[0] = new this.Pixel(200,20);
+		this.gasketArray[1] = new this.Pixel(0,380);
+		this.gasketArray[2] = new this.Pixel(400,380);
 
 		for (var m = 0; m < 100000; m++) {
 		  this.drawRect(Math.round(this.x),Math.round(this.y),'#37B6CE');
